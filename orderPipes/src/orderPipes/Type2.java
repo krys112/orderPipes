@@ -9,6 +9,17 @@ package orderPipes;
  *
  * @author Krys
  */
-public class Type2 {
+public class Type2 extends Pipe{
     
+    public Type2(double len, double dia, int plGrade, int col, boolean in, boolean re, boolean chemRe) {
+        super(len, dia, plGrade, col, in, re, chemRe);
+    }
+    
+    @Override
+    public boolean verify() {
+        if (grade > 1 & grade < 5 & intColor == 1 & insu == false & rein == false) {
+            return true;
+        }
+        else { return false; }
+    }
 }

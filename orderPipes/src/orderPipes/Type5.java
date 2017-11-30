@@ -17,7 +17,7 @@ public class Type5 extends Pipe{
     
     @Override
     public boolean verify() {
-        if (grade > 2 & intColor == 2 & insu == false & rein == false) {
+        if (grade > 2 & intColor == 2 & insu == true & rein == true) {
             return true;
         }
         else { return false; }
