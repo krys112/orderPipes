@@ -11,8 +11,8 @@ package orderPipes;
  */
 public class Type1 extends Pipe{
     
-    public Type1(double len, double dia, int plGrade, int col, boolean in, boolean re, boolean chemRe) {
-        super(len, dia, plGrade, col, in, re, chemRe);
+    public Type1(double len, double dia, int plGrade, int col, boolean in, boolean re, boolean chemRe, int qnt) {
+        super(len, dia, plGrade, col, in, re, chemRe, qnt);
     }
     
     @Override

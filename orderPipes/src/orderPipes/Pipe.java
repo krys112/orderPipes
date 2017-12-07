@@ -11,10 +11,10 @@ package orderPipes;
  */
 public abstract class Pipe {
     protected double length, diameter, cost;
-    protected int grade, intColor;
+    protected int grade, intColor, quantity;
     protected boolean insu, rein, chem;
     
-    public Pipe(double len, double dia, int plGrade, int col, boolean in, boolean re, boolean chemRe) {
+    public Pipe(double len, double dia, int plGrade, int col, boolean in, boolean re, boolean chemRe, int qnt) {
         length = len;
         diameter = dia;
         grade = plGrade;
@@ -22,10 +22,39 @@ public abstract class Pipe {
         insu = in;
         rein = re;
         chem = chemRe;
+        quantity = qnt;
     }   
     
+    public double getLength() {
+        return this.length;
+    }
+    
+    public double getDiameter() {
+        return this.diameter;
+    }
+    
     public String getType() {
-        return this.getClass().getName();
+        return getClass().getName();
+    }
+    
+    public int getGrade() {
+        return this.grade;
+    }
+    
+    public int getColour() {
+        return this.intColor;
+    }
+    
+    public boolean getInsu() {
+        return this.insu;
+    }
+    
+    public boolean getRein() {
+        return this.rein;
+    }
+    
+    public int getQuant() {
+        return this.quantity;
     }
     
     public double basicCost() {
@@ -48,6 +77,22 @@ public abstract class Pipe {
         }
         
         return cost * area;
+    }
+    
+    public double fullCost() {
+        double basic = basicCost();
+        double total = basicCost();
+        if (intColor == 1) {
+            total += basic * 1.12; }
+        else if (intColor == 2) {
+            total += basic * 1.17; }
+        if (insu == true) {
+            total += basic * 1.14; }
+        if (rein == true) {
+            total += basic * 1.15; }
+        if (chem == true) {
+            total += basic * 1.12; }
+        return total * quantity;
     }
     
     public abstract boolean verify();
